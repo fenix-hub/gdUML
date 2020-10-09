@@ -1,0 +1,402 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Control.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_top = 1.0
+bg_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+border_color = Color( 0.105882, 0.105882, 0.105882, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.172549, 0.164706, 0.196078, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.101961, 0.101961, 0.101961, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 0.32549 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+border_blend = true
+
+[node name="UMLEditor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.12549, 0.12549, 0.12549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClassDiagram" type="HBoxContainer" parent="."]
+anchor_left = 0.0136719
+anchor_top = 0.0133333
+anchor_right = 0.987305
+anchor_bottom = 0.986667
+custom_constants/separation = 12
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="ScrollContainer" parent="ClassDiagram"]
+margin_right = 120.0
+margin_bottom = 584.0
+custom_styles/bg = SubResource( 1 )
+scroll_horizontal_enabled = false
+
+[node name="GridContainer" type="GridContainer" parent="ClassDiagram/Control"]
+margin_top = 1.0
+margin_right = 120.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="ClassBtn" type="Button" parent="ClassDiagram/Control/GridContainer"]
+margin_right = 120.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Class"
+
+[node name="Diagram" type="ScrollContainer" parent="ClassDiagram"]
+margin_left = 132.0
+margin_right = 997.0
+margin_bottom = 584.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 2 )
+
+[node name="Space" type="Control" parent="ClassDiagram/Diagram"]
+margin_right = 1000.0
+margin_bottom = 1000.0
+rect_min_size = Vector2( 1000, 1000 )
+rect_clip_content = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ClassEditor" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Hover" type="ColorRect" parent="ClassEditor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.392157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClassPanel" type="PanelContainer" parent="ClassEditor"]
+anchor_left = 0.272461
+anchor_top = 0.285
+anchor_right = 0.727539
+anchor_bottom = 0.721667
+margin_left = -7.0
+margin_top = -7.0
+margin_right = 7.0
+margin_bottom = 7.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ClassContainer" type="VBoxContainer" parent="ClassEditor/ClassPanel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 473.0
+margin_bottom = 269.0
+custom_constants/separation = 10
+
+[node name="Data" type="TabContainer" parent="ClassEditor/ClassPanel/ClassContainer"]
+margin_right = 465.0
+margin_bottom = 232.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Class" type="Tabs" parent="ClassEditor/ClassPanel/ClassContainer/Data"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="ClassField" type="VBoxContainer" parent="ClassEditor/ClassPanel/ClassContainer/Data/Class"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ClassName" type="HBoxContainer" parent="ClassEditor/ClassPanel/ClassContainer/Data/Class/ClassField"]
+margin_right = 457.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="ClassEditor/ClassPanel/ClassContainer/Data/Class/ClassField/ClassName"]
+margin_right = 90.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 90, 0 )
+size_flags_vertical = 3
+text = "Name:"
+
+[node name="ClassNameLine" type="LineEdit" parent="ClassEditor/ClassPanel/ClassContainer/Data/Class/ClassField/ClassName"]
+margin_left = 94.0
+margin_right = 457.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="ClassDescription" type="HBoxContainer" parent="ClassEditor/ClassPanel/ClassContainer/Data/Class/ClassField"]
+margin_top = 32.0
+margin_right = 457.0
+margin_bottom = 196.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="ClassEditor/ClassPanel/ClassContainer/Data/Class/ClassField/ClassDescription"]
+margin_right = 90.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 90, 0 )
+size_flags_vertical = 3
+text = "Description: "
+
+[node name="ClassDescriptionText" type="TextEdit" parent="ClassEditor/ClassPanel/ClassContainer/Data/Class/ClassField/ClassDescription"]
+margin_left = 94.0
+margin_right = 457.0
+margin_bottom = 164.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/normal = SubResource( 4 )
+virtual_keyboard_enabled = false
+wrap_enabled = true
+
+[node name="Attributes" type="Tabs" parent="ClassEditor/ClassPanel/ClassContainer/Data"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="AttributesContainer" type="VBoxContainer" parent="ClassEditor/ClassPanel/ClassContainer/Data/Attributes"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AttributesList" type="ScrollContainer" parent="ClassEditor/ClassPanel/ClassContainer/Data/Attributes/AttributesContainer"]
+margin_right = 457.0
+margin_bottom = 116.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Attributes" type="VBoxContainer" parent="ClassEditor/ClassPanel/ClassContainer/Data/Attributes/AttributesContainer/AttributesList"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 455.0
+margin_bottom = 114.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AttributeField" type="VBoxContainer" parent="ClassEditor/ClassPanel/ClassContainer/Data/Attributes/AttributesContainer"]
+margin_top = 120.0
+margin_right = 457.0
+margin_bottom = 172.0
+
+[node name="AttributeName" type="HBoxContainer" parent="ClassEditor/ClassPanel/ClassContainer/Data/Attributes/AttributesContainer/AttributeField"]
+margin_right = 457.0
+margin_bottom = 24.0
+alignment = 1
+
+[node name="Label" type="Label" parent="ClassEditor/ClassPanel/ClassContainer/Data/Attributes/AttributesContainer/AttributeField/AttributeName"]
+margin_right = 110.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 110, 24 )
+text = "Attribute Name:"
+valign = 1
+
+[node name="AttributeNameLine" type="LineEdit" parent="ClassEditor/ClassPanel/ClassContainer/Data/Attributes/AttributesContainer/AttributeField/AttributeName"]
+margin_left = 114.0
+margin_right = 457.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="AttributeType" type="HBoxContainer" parent="ClassEditor/ClassPanel/ClassContainer/Data/Attributes/AttributesContainer/AttributeField"]
+margin_top = 28.0
+margin_right = 457.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label2" type="Label" parent="ClassEditor/ClassPanel/ClassContainer/Data/Attributes/AttributesContainer/AttributeField/AttributeType"]
+margin_right = 110.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 110, 24 )
+text = "Attribute Type:"
+valign = 1
+
+[node name="AttributeTypeLine" type="LineEdit" parent="ClassEditor/ClassPanel/ClassContainer/Data/Attributes/AttributesContainer/AttributeField/AttributeType"]
+margin_left = 114.0
+margin_right = 457.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="AddAttributesBtn" type="Button" parent="ClassEditor/ClassPanel/ClassContainer/Data/Attributes/AttributesContainer"]
+margin_top = 176.0
+margin_right = 457.0
+margin_bottom = 196.0
+text = "+ Add Attribute"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Methods" type="Tabs" parent="ClassEditor/ClassPanel/ClassContainer/Data"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="MethodsContainer" type="VBoxContainer" parent="ClassEditor/ClassPanel/ClassContainer/Data/Methods"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MethodsList" type="ScrollContainer" parent="ClassEditor/ClassPanel/ClassContainer/Data/Methods/MethodsContainer"]
+margin_right = 457.0
+margin_bottom = 116.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Methods" type="VBoxContainer" parent="ClassEditor/ClassPanel/ClassContainer/Data/Methods/MethodsContainer/MethodsList"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 455.0
+margin_bottom = 114.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MethodField" type="VBoxContainer" parent="ClassEditor/ClassPanel/ClassContainer/Data/Methods/MethodsContainer"]
+margin_top = 120.0
+margin_right = 457.0
+margin_bottom = 172.0
+
+[node name="MethodName" type="HBoxContainer" parent="ClassEditor/ClassPanel/ClassContainer/Data/Methods/MethodsContainer/MethodField"]
+margin_right = 457.0
+margin_bottom = 24.0
+alignment = 1
+
+[node name="Label" type="Label" parent="ClassEditor/ClassPanel/ClassContainer/Data/Methods/MethodsContainer/MethodField/MethodName"]
+margin_right = 130.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 130, 24 )
+text = "Method Name:"
+valign = 1
+
+[node name="MethodNameLine" type="LineEdit" parent="ClassEditor/ClassPanel/ClassContainer/Data/Methods/MethodsContainer/MethodField/MethodName"]
+margin_left = 134.0
+margin_right = 457.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="MethodReturnType" type="HBoxContainer" parent="ClassEditor/ClassPanel/ClassContainer/Data/Methods/MethodsContainer/MethodField"]
+margin_top = 28.0
+margin_right = 457.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label2" type="Label" parent="ClassEditor/ClassPanel/ClassContainer/Data/Methods/MethodsContainer/MethodField/MethodReturnType"]
+margin_right = 130.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 130, 24 )
+text = "Method return type:"
+valign = 1
+
+[node name="MethodReturnTypeLine" type="LineEdit" parent="ClassEditor/ClassPanel/ClassContainer/Data/Methods/MethodsContainer/MethodField/MethodReturnType"]
+margin_left = 134.0
+margin_right = 457.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="AddMethodsBtn" type="Button" parent="ClassEditor/ClassPanel/ClassContainer/Data/Methods/MethodsContainer"]
+margin_top = 176.0
+margin_right = 457.0
+margin_bottom = 196.0
+text = "+ Add Method"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ClassEditor/ClassPanel/ClassContainer"]
+margin_top = 242.0
+margin_right = 465.0
+margin_bottom = 262.0
+
+[node name="CloseBtn" type="Button" parent="ClassEditor/ClassPanel/ClassContainer/HBoxContainer"]
+margin_right = 47.0
+margin_bottom = 20.0
+size_flags_horizontal = 8
+text = "Close"
+
+[node name="ApplyBtn" type="Button" parent="ClassEditor/ClassPanel/ClassContainer/HBoxContainer"]
+margin_left = 417.0
+margin_right = 465.0
+margin_bottom = 20.0
+size_flags_horizontal = 10
+text = "Apply"
+[connection signal="pressed" from="ClassDiagram/Control/GridContainer/ClassBtn" to="." method="_on_ClassBtn_pressed"]
+[connection signal="pressed" from="ClassEditor/ClassPanel/ClassContainer/Data/Attributes/AttributesContainer/AddAttributesBtn" to="." method="_on_AddAttributesBtn_pressed"]
+[connection signal="pressed" from="ClassEditor/ClassPanel/ClassContainer/Data/Methods/MethodsContainer/AddMethodsBtn" to="." method="_on_AddMethodsBtn_pressed"]
+[connection signal="pressed" from="ClassEditor/ClassPanel/ClassContainer/HBoxContainer/CloseBtn" to="." method="_on_CloseBtn_pressed"]
+[connection signal="pressed" from="ClassEditor/ClassPanel/ClassContainer/HBoxContainer/ApplyBtn" to="." method="_on_ApplyBtn_pressed"]
