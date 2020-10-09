@@ -1,0 +1,50 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "PanelContainer",
+"class": "Class",
+"language": "GDScript",
+"path": "res://scenes/class_diagram/elements/class.gd"
+}, {
+"base": "Label",
+"class": "CustomLabel",
+"language": "GDScript",
+"path": "res://scenes/utils/custom_label.gd"
+} ]
+_global_script_class_icons={
+"Class": "",
+"CustomLabel": ""
+}
+
+[application]
+
+config/name="gdUML"
+run/main_scene="res://UMLEditor.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"
+IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
+RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
+UserData="*res://addons/github-integration/scripts/user_data.gd"
+
+[display]
+
+window/dpi/allow_hidpi=true
+
+[editor_plugins]
+
+enabled=PoolStringArray( "github-integration" )
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
