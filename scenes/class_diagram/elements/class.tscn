@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/utils/custom_label.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/class_diagram/elements/class.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+shadow_color = Color( 0, 0, 0, 0.196078 )
+shadow_size = 5
+
+[sub_resource type="StyleBoxLine" id=2]
+grow_begin = 0.0
+grow_end = 0.0
+
+[node name="Class" type="PanelContainer"]
+anchor_right = 0.156
+anchor_bottom = 0.107
+margin_right = 0.255997
+margin_bottom = -0.199997
+mouse_default_cursor_shape = 2
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Data" type="VBoxContainer" parent="."]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 159.0
+margin_bottom = 63.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 3
+alignment = 1
+
+[node name="Name" parent="Data" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 158.0
+margin_bottom = 16.0
+text = "<new class>"
+align = 1
+
+[node name="Separator" type="HSeparator" parent="Data"]
+margin_top = 19.0
+margin_right = 158.0
+margin_bottom = 23.0
+mouse_filter = 2
+custom_styles/separator = SubResource( 2 )
+
+[node name="Attributes" type="VBoxContainer" parent="Data"]
+margin_top = 26.0
+margin_right = 158.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+alignment = 1
+
+[node name="Separator2" type="HSeparator" parent="Data"]
+margin_top = 42.0
+margin_right = 158.0
+margin_bottom = 46.0
+mouse_filter = 2
+custom_styles/separator = SubResource( 2 )
+
+[node name="Methods" type="VBoxContainer" parent="Data"]
+margin_top = 49.0
+margin_right = 158.0
+margin_bottom = 62.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+alignment = 1
